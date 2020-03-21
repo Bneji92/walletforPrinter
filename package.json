@@ -1,0 +1,26 @@
+{
+	"name": "bot-example2",
+	"version": "1.0.0",
+	"description": "Example source code for Obyte chatbot",
+	"main": "start.js",
+	"repository": "https://github.com/byteball/bot-example.git",
+	"author": "tony",
+	"license": "MIT",
+	"dependencies": {
+		"express": "4.17.1",
+		"headless-obyte": "git+https://github.com/byteball/headless-obyte.git",
+		"koa": "2.6.1",
+		"koa-body": "4.0.4",
+		"koa-ejs": "4.1.2",
+		"koa-mount": "4.0.0",
+		"koa-static": "5.0.0",
+		"ocore": "git+https://github.com/byteball/ocore.git",
+		"qrcode": "1.3.0",
+		"body-parser": "latest",
+		"request": "latest"
+	},
+	"devDependencies": {
+		"cookie-parser": "1.4.4",
+		"cors": "2.8.5"
+	}
+}
