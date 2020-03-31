@@ -15,7 +15,7 @@ exports.hub = 'obyte.org/bb';
 exports.deviceName = 'printerStuttgartConWallet';
 exports.permanent_pairing_secret = '*'; // * allows to pair with any code, the code is passed as 2nd param to the pairing event handler
 exports.control_addresses = [''];
-exports.payout_address = 'WHERE THE MONEY CAN BE SENT TO';
+exports.payout_address = 'LMF2UJ5E5QUXV5JSR2YAFSCEGXBEECVL';
 
 exports.bIgnoreUnpairRequests = true;
 exports.bSingleAddress = false;
