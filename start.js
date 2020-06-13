@@ -4,7 +4,7 @@
  * Important: Change printerUrl to destination of your printer client.
  * @type {{}}
  */
-var printerUrl = "192.168.0.12"; // should be th url for the 3D client
+var printerUrl = "http://localhost:8082/client/paymentReceived"; // should be th url for the 3D client
 const db = require('ocore/db');
 const eventBus = require('ocore/event_bus');
 const validationUtils = require('ocore/validation_utils');
@@ -15,7 +15,7 @@ let assocMyAddressToDeviceAddress = {};
 let pairingObjectsPayment = [];
 let pairingObjectsService = [];
 let secrets = [];
-let paymentStable = false;
+let paymentStable = true;
 /**
  * Looks if secret is in any off the arrays. The secret is used to check whether a pairing is valid or not.
  * @param searchSecret
@@ -79,12 +79,14 @@ eventBus.once('headless_wallet_ready', () => {
 			headlessWallet.issueNextMainAddress((address) => {
 				assocMyAddressToDeviceAddress[address] = from_address;
 				assocDeviceAddressToMyAddress[from_address] = address;
-				device.sendMessageToDevice(from_address, 'text', '[balance](byteball:' + address + '?amount=' + ~~pairingObjectsPayment[0].price + ')');
+				//~~pairingObjectsPayment[0].price
+				device.sendMessageToDevice(from_address, 'text', '[balance](byteball:' + address + '?amount=' + 1 + ')');
 			})
 			this.postPaymentValidation(printerUrl);
 		} else if (text === 'service') {
 			if(paymentStable){
-				headlessWallet.issueChangeAddressAndSendPayment('base', ~~pairingObjectsService[0].price, assocDeviceAddressToPeerAddress[from_address], from_address, (err, unit) => {
+				// ~~pairingObjectsService[0].price
+				headlessWallet.issueChangeAddressAndSendPayment('base',1, assocDeviceAddressToPeerAddress[from_address], from_address, (err, unit) => {
 					if (err){
 						// something went wrong, maybe put this payment on a retry queue
 						return;
